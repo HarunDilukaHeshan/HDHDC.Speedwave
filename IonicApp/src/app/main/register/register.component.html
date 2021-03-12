@@ -1,0 +1,49 @@
+<div [formGroup]="formGroup" class="background-img">
+    <ion-item lines="none" color="none">
+        <ion-label>
+            <p>Please register</p>
+        </ion-label>
+    </ion-item>
+    <ion-slides (ionSlideDidChange)="slidesCtrl.onSlideChange($event)" #slideComp>
+        <ion-slide>
+            <div style="width: 100%;">
+                <ion-item color="none">
+                    <ion-label position="stacked">Name:</ion-label>
+                    <ion-input formControlName="name"></ion-input>
+                </ion-item>
+                <br/>
+                <ion-item color="none">
+                    <ion-label position="stacked">Surname:</ion-label>
+                    <ion-input formControlName="surname"></ion-input>
+                </ion-item>
+                <br/>
+                <ion-item color="none">
+                    <ion-label position="stacked">Email:</ion-label>
+                    <ion-input formControlName="email"></ion-input>
+                </ion-item>
+                <br/>
+                <ion-item color="none">
+                    <ion-label position="stacked">Phone no:</ion-label>
+                    <ion-input formControlName="phoneNo"></ion-input>
+                </ion-item>                            
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div style="width: 100%;">
+                <ion-item color="none">
+                    <ion-label position="stacked">Username:</ion-label>
+                    <ion-input formControlName="username"></ion-input>
+                </ion-item>
+                <ion-item color="none">
+                    <ion-label position="stacked">Password:</ion-label>
+                    <ion-input formControlName="password" type="Password"></ion-input>
+                </ion-item>
+            </div>
+        </ion-slide>
+    </ion-slides>
+    <ion-item color="none" lines="none">
+        <ion-button *ngIf="!slidesCtrl.isBeginning" (click)="slideComp.slidePrev()" slot="start">Back</ion-button>
+        <ion-button *ngIf="!slidesCtrl.isEnd" (click)="slideComp.slideNext()" slot="end">Next</ion-button>
+        <ion-button *ngIf="slidesCtrl.isEnd" (click)="save()" [disabled]="formGroup.invalid || isWaiting" slot="end">Register</ion-button>
+    </ion-item>
+</div>

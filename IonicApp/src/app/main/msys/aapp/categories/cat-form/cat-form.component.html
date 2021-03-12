@@ -1,0 +1,23 @@
+<ion-content>
+  <form [formGroup]="categoryFormGroup">
+    <ion-item lines="none">
+      <p style="font-size: x-small;">{{(isUpdateForm)?'Update' : 'Create'}} category</p>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Category name</ion-label>
+      <ion-input formControlName="categoryName" placeholder="Corn bread"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Category description</ion-label>
+      <ion-textarea formControlName="categoryDescription" rows="4" placeholder="Enter a description here.."></ion-textarea>
+    </ion-item>
+    <ion-item class="ion-padding-top" lines="none">
+      <app-gallery-reader (load)="loadImg($event)">
+        <img #thumbnail trigger src="assets/category.jpg" style="width: 200px; height: 200px;">
+      </app-gallery-reader>
+    </ion-item>    
+  <ion-item lines="none">
+    <ion-button slot="end" (click)="save()" [disabled]="categoryFormGroup.invalid">{{(isUpdateForm)?'Update' : 'Create'}}</ion-button>
+  </ion-item>
+  </form>
+</ion-content>

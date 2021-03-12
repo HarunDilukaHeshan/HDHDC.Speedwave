@@ -1,0 +1,16 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <p style="font-size: small;">{{(isUpdatingForm)? 'Update' : 'Create'}} subtotal percentage</p>    
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">From (LKR)</ion-label>
+    <ion-input formControlName="from"></ion-input>
+  </ion-item>  
+  <ion-item>
+    <ion-label position="stacked">Percentage (%)</ion-label>
+    <ion-input formControlName="percentage"></ion-input>
+  </ion-item>  
+  <ion-item lines="none">
+    <ion-button [disabled]="formGroup.invalid || isWaiting" (click)="save()" slot="end">{{(isUpdatingForm)? 'Update' : 'Create'}}</ion-button>
+  </ion-item>
+</div>

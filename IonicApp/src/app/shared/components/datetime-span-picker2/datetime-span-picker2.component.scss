@@ -1,0 +1,5 @@
+:host(.ng-invalid.ng-touched) ion-item{      
+    --full-highlight-height: calc(var(--highlight-height) * var(--show-full-highlight));
+    --inset-highlight-height: calc(var(--highlight-height) * var(--show-inset-highlight));     
+    --highlight-background: var(--highlight-color-invalid);      
+}

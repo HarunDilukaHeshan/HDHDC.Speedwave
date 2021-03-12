@@ -1,0 +1,56 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Checkout</p>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p style="font-size: small;">Address</p></ion-label>
+    <ion-select (ionChange)="onAddrChange($event)" placeholder="select an address" [interfaceOptions]="{ cssClass: 'wrapped-label-alert' }" class="address">
+      <ion-select-option [value]="dto.id" *ngFor="let dto of addrDtoArr">{{ dto.addressLine }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p style="font-size: small;">Delivery schedule</p></ion-label>
+    <ion-select (ionChange)="onDsChange($event)" placeholder="select a delivery schedule" [interfaceOptions]="{ cssClass: 'wrapped-label-alert' }" class="address">
+      <ion-select-option [value]="dto.id" *ngFor="let dto of dsDtoArr">{{ dto.deliveryScheduleName }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item-divider></ion-item-divider>
+  <div style="width: 100%; padding: 1em;">
+    <table style="width: 100%; text-align: left;">
+      <thead>      
+      <tr style="font-size: small;">
+        <th colspan="2">Subtotal percentage</th>
+        <td>{{ (dcDto)? (dcDto.subtotalPercentage | currency : 'LKR ') : '-' }}</td>
+      </tr>
+      <tr style="font-size: small; margin: 0.4em">
+        <th colspan="2">Delivery charge</th>
+        <td>{{ (dcDto)? (dcDto.distanceCharge + dcDto.increasedCost | currency : 'LKR ') : '-' }}</td>
+      </tr>
+      <tr style="font-size: small;">
+        <th colspan="2">Subtotal</th>
+        <td>{{ (dcDto)? (dcDto.subtotal | currency : 'LKR ') : '-' }}</td>
+      </tr>
+      <tr style="font-size: small;">
+        <th colspan="2">Nettotal</th>
+        <td>{{ (dcDto)? (dcDto.nettotal | currency : 'LKR ') : '-' }}</td>
+      </tr>
+      </thead>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr style="font-size: small;">
+        <th style="width: 50%;">Item</th>
+        <th style="width: 15%;">Qty</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let item of cartService.items" style="font-size: x-small;">
+        <td>{{ item.itemName }}</td>
+        <td>{{ item.qty }}</td>
+        <td>{{ item.itemPrice | currency : 'LKR ' }}</td>
+      </tr>
+    </table>    
+  </div>
+  <ion-item lines="none">
+    <ion-button (click)="createOrder()"  [disabled]="isWaiting || !isValid()" fill="clear" slot="end">Order now</ion-button>
+  </ion-item>
+</div>

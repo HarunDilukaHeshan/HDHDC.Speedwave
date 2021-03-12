@@ -1,0 +1,26 @@
+<div class="main-frame">
+  <div>
+    <ion-item>
+      <div class="thumb-frame">
+        <img [class.thumbnail]="selectedImg && selectedImg === selectedThumb" [src]="(selectedImg)? selectedImg.dataUri : 'assets/item.jpg'">
+        <ion-button *ngIf="!(selectedImg === selectedThumb)" (click)="setAsThumb(selectedImg)" fill="clear" class="thumb-button ion-no-margin">
+          <ion-label><p>Set as thumb</p></ion-label>
+        </ion-button>
+        <ion-button *ngIf="selectedImg" fill="clear" (click)="removeImg(selectedImg)" class="thumb-remove-button ion-no-margin">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </div>
+  <div>
+    <ion-item lines="none">
+      <div class="img-list-frame">
+        <ion-thumbnail *ngFor="let img of imgArr" 
+        [class.selectedImg]="img === selectedImg" 
+        [class.selectedThumb]="img === selectedThumb" 
+        (click)="selectImg(img)"><img
+            [src]="img.dataUri"></ion-thumbnail>
+      </div>
+    </ion-item>
+  </div>
+</div>

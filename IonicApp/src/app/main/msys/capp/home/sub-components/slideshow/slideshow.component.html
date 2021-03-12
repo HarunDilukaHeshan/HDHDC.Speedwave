@@ -1,0 +1,5 @@
+<ion-slides>
+  <ion-slide (click)="navigateToLink(dto.fileName)" *ngFor="let dto of dtoArr">
+    <img [src]="dto.base64Picture">
+  </ion-slide>
+</ion-slides>

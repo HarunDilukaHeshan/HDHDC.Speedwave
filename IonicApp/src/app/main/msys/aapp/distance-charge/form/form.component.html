@@ -1,0 +1,16 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <p style="font-size: small;">{{(isUpdatingForm)? 'Update' : 'Create'}} distance charge</p>        
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">From (km)</ion-label>
+    <ion-input formControlName="from" placeholder="0.0 km"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Charge (LKR)</ion-label>
+    <ion-input formControlName="charge" placeholder="LKR 100.00"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="save()" [disabled]="formGroup.invalid || isWaiting" slot="end">{{(isUpdatingForm)? 'Update' : 'Save'}}</ion-button>
+  </ion-item>
+</div>

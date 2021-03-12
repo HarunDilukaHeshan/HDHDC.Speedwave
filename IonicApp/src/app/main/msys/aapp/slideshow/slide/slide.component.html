@@ -1,0 +1,30 @@
+<div [formGroup]="formGroup" class="ion-margin-top">
+  <div (click)="openGallery()" style="display: flex; justify-content: center;">
+    <img [width]="318" [height]="179" [src]="(imgB64 == '')? 'assets/slideshow.jpg' : imgB64">
+  </div>  
+  <ion-item>
+    <ion-label position="floating"><p>Slide name</p></ion-label>
+    <ion-input formControlName="name"></ion-input>
+  </ion-item>
+  <div> 
+    <ion-item>
+      <ion-label><p>Link</p></ion-label>
+      <ion-checkbox formControlName="hasLink"></ion-checkbox>
+    </ion-item>   
+  </div>
+  <div>
+    <ion-item [disabled]="!hasLink">
+      <ion-label position="floating"><p>ItemId</p></ion-label>
+      <ion-input formControlName="itemId" type="number"></ion-input>
+    </ion-item>
+    <ion-item [disabled]="!hasLink || hasItemId">
+      <ion-label position="floating"><p>Keywords</p></ion-label>
+      <ion-input formControlName="keywords"></ion-input>
+    </ion-item>
+  </div>
+  <ion-item lines="none">
+    <ion-button [disabled]="formGroup.invalid || isWaiting" (click)="saveChanges()" slot="end">
+      <ion-label>Save changes</ion-label>
+    </ion-button>
+  </ion-item>
+</div>

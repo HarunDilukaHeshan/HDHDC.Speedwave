@@ -1,0 +1,54 @@
+<div>
+    
+        <div class="ion-margin">
+            <div *ngFor="let dto of selectedDtoArr" class="selected-o" [class.haulted]="dto.orderStatus == 'haulted'">
+                <div style="display: flex; justify-content: space-between;">
+                    <p class="city">City: {{ (dto)? dto.addressDto.cityDto.cityName : ''}}</p>
+                    <p class="city">D. schedule: {{ (dto)? dto.deliveryScheduleDto.deliveryScheduleName : '' }}</p>
+                </div>
+                <div class="p-detail">
+                    <div class="col-01">
+                        <p>Subtotal:</p>
+                        <p>Delivery charge:</p>
+                        <p>Nettotal:</p>
+                    </div>
+                    <div class="col-02">
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                    </div>
+                    <div class="col-03">
+                        <p>{{ dto.paymentDto.subtotal | currency : 'LKR ' }}</p>
+                        <p>{{ dto.paymentDto.deliveryChargeDto.charge | currency : 'LKR ' }}</p>
+                        <p>{{ dto.paymentDto.nettotal | currency : 'LKR ' }}</p>
+                    </div>
+                </div>
+                <div>
+                    <ion-button size="small" fill="clear">
+                        <ion-icon name="map-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button [disabled]="dto.orderStatus == 'haulted'" (click)="Deselect(dto.id)" size="small" fill="clear">
+                        <ion-label>Remove</ion-label>
+                    </ion-button>
+                    <ion-button size="small" fill="clear" [routerLink]="['detail', { orderId: dto.id }]" routerDirection="forward">
+                        <ion-label>Details</ion-label>
+                    </ion-button>
+                </div>
+            </div>           
+        </div>
+        <ion-item-divider></ion-item-divider>
+        <div>
+            <ion-item *ngFor="let dto of orderDtoArr">
+                <ion-label>
+                    <p style="font-size: small;">City: {{ dto.addressDto.cityDto.cityName }}</p>
+                    <p style="font-size: x-small;">Subtotal: {{ dto.paymentDto.subtotal | currency : 'LKR ' }}</p>
+                </ion-label>
+                <ion-label class="ion-align-self-start">
+                    <ion-button [routerLink]="['detail', { orderId: dto.id }]" routerDirection="forward" class="ion-align-self-start ion-no-margin" size="small" fill="clear">
+                        <ion-label>View Detail</ion-label>
+                    </ion-button>
+                </ion-label>
+            </ion-item>
+        </div>
+    
+    </div>

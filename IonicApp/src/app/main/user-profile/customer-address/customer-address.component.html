@@ -1,0 +1,20 @@
+<div>
+  <ion-item lines="none">
+    <ion-label><p style="font-size: small;">Addresses</p></ion-label>      
+    <ion-button fill="clear" routerLink="form"><ion-icon name="add-outline"></ion-icon></ion-button>
+  </ion-item>  
+  <ion-item-divider></ion-item-divider>
+  <ion-item-sliding *ngFor="let dto of dtoArr">
+    <ion-item>
+      <ion-label>
+        <p>{{ dto.addressLine }}</p>
+        <p style="font-size: small;">City: {{ dto.cityDto.cityName }}</p>
+      </ion-label>
+      <ion-icon name="arrow-back-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option color="none" [routerLink]="['form', { addressId: dto.id }]">Edit</ion-item-option>
+      <ion-item-option color="none" (click)="delete(dto.id)"><ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>  
+</div>

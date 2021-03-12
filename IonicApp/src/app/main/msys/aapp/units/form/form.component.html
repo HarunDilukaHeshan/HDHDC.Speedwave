@@ -1,0 +1,18 @@
+<div>
+    <ion-item lines="none">
+      <p style="font-size: x-small;">Create unit</p>
+    </ion-item>
+  <form [formGroup]="formGroup">
+  <ion-item>
+    <ion-label position="stacked">Unit name</ion-label>
+    <ion-input formControlName="unitName" placeholder="Corn bread"></ion-input> 
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Unit symbol</ion-label>
+    <ion-input formControlName="unitSymbol" placeholder="Corn bread"></ion-input> 
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button [disabled]="formGroup.invalid || awaiting" (click)="createUnit()" slot="end">Save</ion-button>
+  </ion-item>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<ion-item-sliding>
+  <ion-item>
+    <ion-thumbnail>
+      <img [src]="thumbnailDataUrl">
+    </ion-thumbnail>
+    <ion-label class="ion-align-self-start ion-padding-start">
+      <p class="">{{categoryName}}</p>
+    </ion-label>
+    <ion-icon name="arrow-back-outline" slot="end"></ion-icon>
+  </ion-item>
+  <ion-item-options>
+    <ion-item-option [routerLink]="['./form', { categoryId: categoryId}]" routerDirection="forward">Edit</ion-item-option>
+    <ion-item-option (click)="deleteItem()" color="none">
+      <ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

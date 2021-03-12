@@ -1,0 +1,10 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Quantities</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+  <app-quantity-item 
+  *ngFor="let item of quantityArr" 
+  [dto]="item" 
+  (ondelete)="ondelete($event)"></app-quantity-item>
+</div>

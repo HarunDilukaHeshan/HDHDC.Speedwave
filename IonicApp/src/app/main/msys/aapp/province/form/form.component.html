@@ -1,0 +1,12 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Create province</p>
+  </ion-item>
+  <ion-item [formGroup]="formGroup">
+    <ion-label position="stacked">Province name</ion-label>
+    <ion-input formControlName="provinceName"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button [disabled]="isAwaiting || formGroup.invalid" (click)="save()" slot="end">Save</ion-button>
+  </ion-item>
+</div>

@@ -1,0 +1,16 @@
+<div>
+  <ion-searchbar [value]="keywords" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  <ion-item *ngFor="let dto of dtoArr">    
+    <ion-thumbnail slot="start" [routerLink]="['/msys/capp/item', { itemId: dto.id }]" routerDirection="forward"> 
+      <app-img [src]="dto.itemThumbnail"></app-img>
+    </ion-thumbnail>
+    <ion-label [routerLink]="['/msys/capp/item', { itemId: dto.id }]" routerDirection="forward">
+      <p>{{ dto.itemName }}</p>
+      <p>Price: {{ dto.itemPrice | currency : 'LKR ' }}</p>
+    </ion-label>
+    <ion-button (click)="addToCart(dto)" slot="end" class="ion-align-end" style="font-size: xx-small;">Add to</ion-button>
+  </ion-item>
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="onScrollReachEnd($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>

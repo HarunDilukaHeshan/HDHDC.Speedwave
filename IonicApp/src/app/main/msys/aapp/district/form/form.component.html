@@ -1,0 +1,18 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <p style="font-size: small;">Create district</p>    
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">District name</ion-label>
+    <ion-input formControlName="districtName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Province</ion-label>
+    <ion-select formControlName="province">
+      <ion-select-option *ngFor="let province of provinceDtoList">{{province.id}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button [disabled]="isAwaiting || formGroup.invalid" (click)="save()" slot="end">Save</ion-button>
+  </ion-item>
+</div>

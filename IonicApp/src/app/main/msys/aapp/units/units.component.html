@@ -1,0 +1,11 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Units</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+
+  <app-units-item 
+  *ngFor="let unitDto of unitDtos" 
+  (ondelete)="ondelete($event)"
+  [unitdto]="unitDto"></app-units-item>  
+</div>

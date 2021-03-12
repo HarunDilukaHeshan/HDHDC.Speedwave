@@ -1,0 +1,12 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Min required times</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+  <div>
+    <app-mrt-item
+    *ngFor="let dto of mrtDtoArr" 
+    [dto]="dto" 
+    (ondelete)="ondelete()"></app-mrt-item>
+  </div>  
+</div>

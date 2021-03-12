@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-item lines="none">
+    <p style="font-size: small;">Categories</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+  <div class="">
+    <app-cat-item     
+    *ngFor="let cat of categoryDtoArr"
+    (ondelete)="onItemDelete($event)"
+    [category-id]="cat.id"
+    [category-name]="cat.categoryName" 
+    [thumbnail]="cat.categoryThumbnail"></app-cat-item>
+  </div>
+</ion-content>

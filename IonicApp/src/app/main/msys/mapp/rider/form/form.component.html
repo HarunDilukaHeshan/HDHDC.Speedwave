@@ -1,0 +1,63 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Create rider</p>
+  </ion-item>
+
+  <ion-slides [formGroup]="formGroup" (ionSlideDidChange)="slidesCtrl.onSlideChange($event)" #slideComp>
+
+    <ion-slide>
+      <div style="width: 100%;">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Surname</ion-label>
+          <ion-input formControlName="surname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Phone No</ion-label>
+          <ion-input formControlName="phoneNo"></ion-input>
+        </ion-item>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div style="width: 100%;">
+        <ion-item>
+          <ion-label position="stacked">City</ion-label>
+          <ion-select formControlName="city" (ionChange)="onCityChange($event)">
+            <ion-select-option [value]="dto.id" *ngFor="let dto of cityDtoArr">{{dto.cityName}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+       <div *ngIf="initCoords != null">
+          <app-geolocation-reader [mapInitialCoords]="initCoords" [markers]="markers" (mapClick)="onMapClick($event)">
+          </app-geolocation-reader>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div style="width: 100%;">
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input formControlName="password"></ion-input>
+        </ion-item>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item lines="none">
+    <ion-button *ngIf="!slidesCtrl.isBeginning" (click)="slideComp.slidePrev()" slot="start">Back</ion-button>
+    <ion-button *ngIf="!slidesCtrl.isEnd" (click)="slideComp.slideNext()" slot="end">Next</ion-button>
+    <ion-button *ngIf="slidesCtrl.isEnd" (click)="save()" [disabled]="formGroup.invalid || isWaiting" slot="end" color="success">Save</ion-button>
+  </ion-item>
+</div>

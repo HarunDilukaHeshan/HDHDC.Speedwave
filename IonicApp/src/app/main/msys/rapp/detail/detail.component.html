@@ -1,0 +1,62 @@
+<div class="ion-margin">
+    <div>
+        <div class="selected-o">
+            <div style="display: flex; justify-content: space-between;">
+                <p class="city">City: {{ (dto)? dto.addressDto.cityDto.cityName : ''}}</p>
+                <p class="city">D. schedule: {{ (dto)? dto.deliveryScheduleDto.deliveryScheduleName : '' }}</p>
+            </div>
+            <div class="p-detail">
+                <div class="col-01">
+                    <p>Subtotal:</p>
+                    <p>Delivery charge:</p>
+                    <p>Nettotal:</p>
+                </div>
+                <div class="col-02">
+                    <p>:</p>
+                    <p>:</p>
+                    <p>:</p>
+                </div>
+                <div class="col-03">
+                    <p>{{ ((dto)? dto.paymentDto.subtotal : 0) | currency : 'LKR ' }}</p>
+                    <p>{{ ((dto)? dto.paymentDto.deliveryChargeDto.charge : 0) | currency : 'LKR ' }}</p>
+                    <p>{{ ((dto)? dto.paymentDto.nettotal : 0) | currency : 'LKR ' }}</p>
+                </div>
+            </div>
+            <div>
+                <ion-button size="small" fill="clear">
+                    <ion-icon name="map-outline"></ion-icon>
+                </ion-button>
+                <ion-button *ngIf="oStatus=='p'" (click)="selectOrder(dto.id)" size="small" fill="clear">
+                    <ion-label>Deliver</ion-label>
+                </ion-button>
+                <ion-button *ngIf="oStatus=='i'" (click)="openCancelDialog()" size="small" fill="clear">
+                    <ion-label>Cancel</ion-label>
+                </ion-button>
+                <ion-button *ngIf="oStatus=='h'" (click)="rollbackOrder(dto.id)" size="small" fill="clear">
+                    <ion-label>Rollback</ion-label>
+                </ion-button>
+                <ion-button (click)="openAvaiStoresDialog()" size="small" fill="clear">
+                    <ion-label>Stores</ion-label>
+                </ion-button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                </tr>
+            </thead>            
+            <thead *ngIf="dto">
+                <tr *ngFor="let item of dto.orderItemDtos">
+                    <td>{{ item.itemDto.itemName }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.itemPrice | currency : 'LKR ' }}</td>
+                </tr>
+            </thead>
+        </table>
+    </div>    
+</div>

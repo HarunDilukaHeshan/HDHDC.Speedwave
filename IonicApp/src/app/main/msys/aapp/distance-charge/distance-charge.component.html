@@ -1,0 +1,22 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Distance charge</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+
+  <ion-item-sliding *ngFor="let dto of dtoArr">
+    <ion-item>
+      <ion-label>
+        <p>From: {{dto.from}}</p>
+        <p>Charge: {{dto.charge}}</p>
+      </ion-label>
+      <ion-icon name="arrow-back-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option [routerLink]="['form', { distanceChargeId: dto.id }]" color="none">Edit</ion-item-option>
+      <ion-item-option (click)="delete(dto.id)" color="none">
+        <ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>

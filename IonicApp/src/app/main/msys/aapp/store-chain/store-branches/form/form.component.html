@@ -1,0 +1,32 @@
+<div>  
+  <ion-item lines="none">
+    <p style="font-size: small;">Create Store branch</p>
+  </ion-item>
+
+  <ion-slides [options]="slidesCtrl.options" (ionSlideDidChange)="slidesCtrl.onSlideChange($event)" #slideComp>
+    <ion-slide>
+      <div style="width: 100%;">
+        <app-basic-info 
+        [storeChainDto]="storeChainDto" 
+        [storeBranchDto]="storeBranchDto" 
+        (onStatusChange)="onFormStatusChange($event)"></app-basic-info>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div style="width: 100%;">
+        <app-opening-days 
+        [openDayDtoArr]="openDayDtoArr"
+        (onChange)="onOpenDayChange($event)" 
+        (onReady)="onOpenDayReady($event)"></app-opening-days>
+      </div>
+    </ion-slide>
+  </ion-slides>
+    
+  <ion-item *ngIf="slidesCtrl.isBeginning" lines="none">
+    <ion-button (click)="slideComp.slideNext()" slot="end">Next</ion-button>
+  </ion-item>
+  <ion-item *ngIf="slidesCtrl.isEnd">
+    <ion-button (click)="slideComp.slidePrev()" slot="start">Back</ion-button>
+    <ion-button [disabled]="!isValidForm || isWaiting" (click)="save()" slot="end" color="success">Save</ion-button>    
+  </ion-item>
+</div>

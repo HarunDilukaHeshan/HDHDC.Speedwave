@@ -1,0 +1,10 @@
+<div>
+  <agm-map 
+    *ngIf="canInit"
+    (mapClick)="onMapClick($event)"
+    [restriction]="mapRestriction"
+    [latitude]="mapInitialCoords.lat" 
+    [longitude]="mapInitialCoords.lng">
+    <agm-marker *ngFor="let item of markers" [latitude]="item.coords.lat" [longitude]="item.coords.lng"></agm-marker>
+  </agm-map>      
+</div>

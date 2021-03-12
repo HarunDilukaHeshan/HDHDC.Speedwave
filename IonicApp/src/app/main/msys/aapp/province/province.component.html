@@ -1,0 +1,17 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Provinces</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>  
+  <ion-item-sliding *ngFor="let item of provinceDtoArr">
+    <ion-item>
+      <ion-label class="ion-align-self-start ion-padding-start">
+        <p class="">{{item.id}}</p>
+      </ion-label>
+      <ion-icon name="arrow-back-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item-options>      
+      <ion-item-option (click)="delete(item.id)" color="none"><ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>

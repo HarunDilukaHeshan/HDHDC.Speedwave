@@ -1,0 +1,13 @@
+<div>
+  <form>
+    <ion-item lines="none">
+      <p style="font-size: x-small;">Create</p>
+    </ion-item>
+    <form [formGroup]="formGroup">      
+      <app-datetime-span-picker2 label="Min required time" (onChange)="onChange($event)"></app-datetime-span-picker2>          
+    </form>
+    <ion-item lines="none">
+      <ion-button [disabled]="formGroup.invalid || awaiting" (click)="createMrt()" slot="end">Save</ion-button>
+    </ion-item>
+  </form>
+</div>

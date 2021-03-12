@@ -1,0 +1,28 @@
+<div style="background-color: #f4f5f8; margin: 0.6em 0;">
+  <ion-slides [options]="itemSlides" *ngFor="let dtoArr of dtoArrArr">
+    <ion-slide *ngFor="let dto of dtoArr">
+      <ion-card >
+        <ion-card-content [routerLink]="['./item', { itemId: dto.id }]" routerDirection="forward" class="ion-no-padding">
+          <div>
+            <!-- <img src="assets/item.jpg" style="width: 100%;"> -->
+            <app-img [src]="dto.itemThumbnail"></app-img>
+            <span style="font-size: x-small; 
+            position:absolute;bottom: 0; 
+            right: 0;margin:0.4em;
+            padding-bottom: 0.2em;
+            font-weight: bold;
+            text-shadow: 0.02em 0.02em black;">{{ dto.itemPrice }}</span>
+          </div>
+        </ion-card-content>
+        <ion-card-header class="ion-no-padding">
+          <ion-card-subtitle style="font-size: xx-small;" class="ion-text-center">{{ dto.itemName }}
+          </ion-card-subtitle>
+          <ion-button [disabled]="!dto" (click)="addToCart(dto)" fill="clear" class="ion-float-right" size="small" style="font-size: x-small;">Add to</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>  
+</div>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="onScrollReachEnd($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+</ion-infinite-scroll>

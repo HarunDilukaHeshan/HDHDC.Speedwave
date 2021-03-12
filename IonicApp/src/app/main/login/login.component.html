@@ -1,0 +1,23 @@
+<div class="background-img">
+  <div>
+    <img src="assets/speedwave.png" alt="logo">
+  </div>
+  <div [formGroup]="formGroup">
+    <ion-item class="credentials-inputs" size="small">
+      <ion-input formControlName="username" placeholder="Username"></ion-input>
+    </ion-item>
+    <ion-item class="credentials-inputs">
+      <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+  </div>
+  <div>
+    <ion-button (click)="loginAsync()" class="login-btn"><ion-label>Login</ion-label></ion-button>
+  </div>
+  <div>
+    <h4 class="sub-links">
+      <span routerLink="/forgot-password" routerDirection="forward">Forgot password</span>
+      &nbsp;|&nbsp;
+      <span routerLink="/register" routerDirection="forward">Register</span>
+    </h4>    
+  </div>
+</div>

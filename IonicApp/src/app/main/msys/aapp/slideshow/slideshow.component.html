@@ -1,0 +1,28 @@
+<div>
+  <ion-item lines="none">
+    <ion-label>
+      <p>Slideshow</p>
+    </ion-label>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+  <!-- <app-slide></app-slide> -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let dto of dtoArr">
+      <ion-item>
+        <ion-thumbnail>
+          <img [src]="dto.base64Picture">
+        </ion-thumbnail>
+        <ion-label class="ion-margin-start ion-align-self-start">
+          <p>{{ dto.name }}</p>
+          <p>Link: {{ dto.uri }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option [routerLink]="['form', { fileName: dto.fileName }]">Edit</ion-item-option>
+        <ion-item-option (click)="delete(dto.fileName)" color="danger">
+          <ion-icon  class="ion-no-margin ion-no-padding" slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</div>

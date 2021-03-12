@@ -1,0 +1,8 @@
+<ion-slides [options]="categorySlides">
+  <ion-slide [routerLink]="['search', { keywords: dto.categoryName }]" routerDirection="forward" *ngFor="let dto of dtoArr">
+    <div style="display: flex; flex-direction: column;">
+      <img [src]="dto.categoryThumbnailBase64" style="border-radius: 0.2em;">
+      <span style="font-size: xx-small;">{{dto.categoryName}}</span>
+    </div>
+  </ion-slide>  
+</ion-slides>

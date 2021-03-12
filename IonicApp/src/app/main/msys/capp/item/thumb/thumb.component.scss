@@ -1,0 +1,43 @@
+.main-frame .thumb-frame {
+    position: relative;
+}
+
+.main-frame .thumb-frame .thumb-button {
+    position: absolute; 
+    left: 0; 
+    top: 0;
+}
+
+.main-frame .thumb-frame img {
+    width: 12.5em;
+    height: 12.5em;
+}
+
+.main-frame .thumb-frame .thumb-button p {
+    font-size: small;
+}
+
+.main-frame .thumb-frame .thumb-remove-button {
+    position: absolute; right: 0; top: 0;
+}
+
+.main-frame .img-list-frame {
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.main-frame .thumb-frame>.thumbnail {
+    border: 5px solid green;
+}
+
+.main-frame .img-list-frame ion-thumbnail {
+    margin: 0.4em;
+}
+
+.main-frame .img-list-frame .selectedImg {
+    border: 1px solid green;
+}
+
+.main-frame .img-list-frame .selectedThumb {
+    border: 5px solid green;
+}

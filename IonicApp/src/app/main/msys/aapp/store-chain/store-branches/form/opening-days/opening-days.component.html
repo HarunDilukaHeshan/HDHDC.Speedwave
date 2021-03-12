@@ -1,0 +1,15 @@
+<div class="ion-margin">  
+  <!-- <app-dayoftheweek disabled="true" label="Sun" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Mon" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Tue" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Wed" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Thu" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Fri" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek>
+  <app-dayoftheweek label="Sat" [openingTime]="'06:30'" [closingTime]="'22:30'"></app-dayoftheweek> -->
+
+  <app-dayoftheweek 
+  *ngFor="let dow of dowArr" 
+  [holder]="dow"
+  (onChange)="onValueChange($event)"
+  (onDisabledChange)="onDisabledChange($event)"></app-dayoftheweek>
+</div>

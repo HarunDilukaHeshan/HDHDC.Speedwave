@@ -1,0 +1,22 @@
+<div class="ion-padding-top">  
+  <ion-slides>
+    <ion-slide *ngFor="let dto of itemPicDtoArr">
+      <img [src]="dto.base64DataUri">
+    </ion-slide>
+    <!-- <ion-slide>
+      <img src="assets/slideshow.jpg">
+    </ion-slide> -->
+  </ion-slides>
+  <ion-item>
+    <ion-label>
+      <p style="margin-bottom: 0.5em;"><strong>{{ (itemDto)? itemDto.itemName : '' }}</strong></p>
+      <p class="ion-no-padding ion-no-margin">Price: {{ (itemDto)? (itemDto.itemPrice | currency : 'LKR ') : '' }}</p>
+      <p>{{ (itemDto)? itemDto.itemDescription : '' }}</p>
+    </ion-label>
+  </ion-item>  
+  <div style="position: relative;">        
+  </div>  
+  <ion-item lines="none" [disabled]="!itemDto">
+    <ion-button (click)="addToCart(itemDto)" slot="end" fill="clear" style="font-size: x-small; position: absolute; right: 0;">Add to cart</ion-button>
+  </ion-item>
+</div>

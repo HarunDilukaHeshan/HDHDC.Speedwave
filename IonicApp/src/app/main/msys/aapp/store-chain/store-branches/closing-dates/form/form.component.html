@@ -1,0 +1,28 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Create closing date</p>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Store chain</ion-label>
+    <ion-input [value]="chainName" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Store branch</ion-label>
+    <ion-input [value]="cityName" readonly></ion-input>
+  </ion-item>
+  <ion-item [formGroup]="formGroup">
+    <ion-label position="stacked">Closing date</ion-label>
+
+    <ion-datetime 
+      formControlName="closingDate" 
+      [min]="getMinDate()"
+      placeholder="Add closing date"></ion-datetime>
+
+    <ion-button slot="end" fill="none">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="save()" [disabled]="formGroup.invalid || isWaiting" slot="end">Save</ion-button>
+  </ion-item>
+</div>

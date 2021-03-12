@@ -1,0 +1,52 @@
+<ion-content>
+  <div style="display: flex; flex-direction: column; height: 100%;">
+    <div style="
+  height: 15%;
+  flex-shrink: 0; 
+  background-color: bisque; 
+  overflow: hidden;
+  background-size: cover;
+  position: relative;
+  background-image: url('assets/header.jpg');">
+      <ion-button (click)="open()" slot="start" fill="clear" class="ion-no-padding" size="large"
+        style="position: absolute; bottom: 0;">
+        <ion-icon name="menu-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <div style="
+        position: absolute; 
+        min-height: 2.2em;
+        min-width: 9em;
+        right: 0.6em; 
+        top: -0.6em; 
+        border-radius: 0.8em; 
+        border: 0.1em solid #707070;
+        box-shadow: 0em 0.1em #444848;
+        background-color: #A5BFC6;">
+        <span style="position: absolute;
+        border: 0;
+        bottom: 0.5em;
+        font-size: x-small;
+        left: 1em;">{{ cartService.subtotal | currency : 'LKR ' }}</span>
+        <span (click)="moveToCart()" style="position: absolute; right: 0; bottom: 0; margin-right: 0.4em;">
+          <ion-badge style="font-size: x-small;">{{ cartService.qty }}</ion-badge>
+          <ion-icon name="cart" slot="icon-only"></ion-icon>
+        </span>
+      </div>
+    </div>
+    <div style="height: 85%; overflow: scroll;">
+      <router-outlet id="side-menu-main"></router-outlet>
+    </div>
+  </div>
+  <app-side-menu></app-side-menu>
+  <!-- Tempate for the side menu -->
+  <ng-template #forSideMenu>
+    <ion-list>
+      <ion-item button (click)="moveToHome()">
+        <ion-label>Home</ion-label>
+      </ion-item>
+      <ion-item button (click)="moveToMyOrders()">
+        <ion-label>My orders</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>

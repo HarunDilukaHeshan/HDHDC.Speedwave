@@ -1,0 +1,20 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <p style="font-size: small;">{{ (isUpdatingForm)? 'Update': 'Create' }} promotion</p>    
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Is one time</ion-label>
+    <ion-checkbox formControlName="isOneTime"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">No of times</ion-label>
+    <ion-input formControlName="numberOfTimes" type="number" placeholder="No of times"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Expire date</ion-label>
+    <ion-datetime formControlName="expireDate"></ion-datetime>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="save()" [disabled]="formGroup.invalid || isWaiting" slot="end">Save</ion-button>
+  </ion-item>
+</div>

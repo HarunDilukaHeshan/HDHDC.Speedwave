@@ -1,0 +1,32 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Closing dates</p>
+    <ion-button
+      [routerLink]="['form', { chainName: ((chainDto)? chainDto.storeChainName : ''), cityName: ((cityDto)? cityDto.cityName : '') }]"
+      routerDirection="forward" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Store chain</ion-label>
+    <ion-input [value]="(chainDto)? chainDto.storeChainName : ''" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Branch</ion-label>
+    <ion-input [value]="(cityDto)? cityDto.cityName : ''" readonly></ion-input>
+  </ion-item>
+  <ion-item-divider lines="none"></ion-item-divider>
+
+  <ion-item-sliding  *ngFor="let item of closingDateDtoArr"> 
+    <ion-item>
+      <ion-label position="stacked">Closing date</ion-label>
+      <ion-datetime readonly [value]="item.closingDate"></ion-datetime>      
+      <ion-icon class="ion-align-self-center" name="arrow-back-outline" slot="end" size="small"></ion-icon>      
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option (click)="delete(item.id, item.storeBranchID)" color="none">
+        <ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>

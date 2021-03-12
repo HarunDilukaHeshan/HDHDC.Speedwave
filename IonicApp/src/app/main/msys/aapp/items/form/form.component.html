@@ -1,0 +1,47 @@
+<div style="margin-bottom: 1em;;">
+  <ion-item lines="none">
+    <p style="font-size: x-small;">{{(isUpdatingForm)? 'Update' : 'Create'}} item</p>
+  </ion-item>
+  <form [formGroup]="formGroup">
+    <ion-item>
+      <ion-label position="stacked">Item name</ion-label>
+      <ion-input formControlName="itemName" placeholder="Corn bread"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Item description</ion-label>
+      <ion-textarea formControlName="itemDescription" rows="3" placeholder="Corn bread made from sri lankan corn"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Item price (LKR)</ion-label>
+      <ion-input formControlName="itemPrice" placeholder="LKR 1500.00"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Quantity</ion-label>
+      <ion-select formControlName="quantity" placeholder="400g">
+        <ion-select-option [value]="item.id" *ngFor="let item of quantityDtoArr">{{item.quantity + ' ' + item.unitID}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Min required time</ion-label>
+      <ion-select formControlName="minRequiredTime" placeholder="10mins">
+        <ion-select-option [value]="item.id" *ngFor="let item of mrtDtoArr">{{item.minRequiredTime}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button (click)="openFilePicker()" slot="end" fill="clear">Add</ion-button>
+    </ion-item>
+    <app-product-pics #productPics (onReset)="onReset($event)" (onImgAdd)="onImgAdd($event)" (onImgRemove)="onImgRemove($event)"
+      (onThumbChange)="onThumbChange($event)"></app-product-pics>
+
+    <ion-item lines="full">
+      <ion-label position="stacked">Categories</ion-label>
+      <ion-select formControlName="categories" multiple placeholder="400g">
+        <ion-select-option [value]="dto.id" *ngFor="let dto of categoryDtoArr">{{dto.categoryName}}</ion-select-option>
+      </ion-select>      
+    </ion-item>
+    <ion-item></ion-item>
+  </form>
+  <ion-item lines="none">
+    <ion-button [disabled]="formGroup.invalid || isWaiting" (click)="saveAll()" slot="end">{{(isUpdatingForm)? 'Update' : 'Create'}}</ion-button>
+  </ion-item>
+</div>

@@ -1,0 +1,35 @@
+<div>
+  <ion-item lines="none">
+    <ion-label>
+      <p>My orders</p>
+    </ion-label>
+  </ion-item>
+  <ion-item-divider></ion-item-divider>
+  <ion-item *ngFor="let dto of dtoArr" button [routerLink]="['details', dto.id]" routerDirection="forward">
+    <ion-label>
+      <div>
+        <div style="display: flex;">
+          <div style="flex-grow: 3;">
+            <p>Nettotal</p>
+            <p style="font-size: x-small; line-height: 1.3em;">Subtotal</p>
+            <p style="font-size: x-small; line-height: 1.3em;">Delivery charge</p>
+          </div>
+          <div style="flex-grow: 0.5;">
+            <p>:</p>
+            <p style="font-size: x-small; line-height: 1.3em;">:</p>
+            <p style="font-size: x-small; line-height: 1.3em;">:</p>
+          </div>
+          <div style="flex-grow: 6.5;">
+            <p>{{ (dto)? (dto.paymentDto.nettotal | currency : 'LKR ') : '' }}</p>
+            <p style="font-size: x-small; line-height: 1.3em;">{{ (dto)? (dto.paymentDto.subtotal | currency : 'LKR ') : '' }}</p>
+            <p style="font-size: x-small; line-height: 1.3em;">{{ (dto)? (dto.paymentDto.deliveryChargeDto.charge | currency : 'LKR ') : '' }}</p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 0.4em;">
+          <span style="font-size: small;">D. Schedule: {{ (dto)? (dto.deliveryScheduleDto.deliveryScheduleName) : '' }}</span>
+          <span style="font-size: small;">Status: {{ (dto)? dto.orderStatus : '' }}</span>
+        </div>
+      </div>
+    </ion-label>
+  </ion-item>
+</div>

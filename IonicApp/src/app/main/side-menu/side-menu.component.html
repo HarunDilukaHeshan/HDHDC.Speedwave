@@ -1,0 +1,14 @@
+<ion-menu side="start" menuId="side-menu" contentId="side-menu-main">
+  <ion-header>
+    <ion-item button (click)="navToProfile()">
+      <ion-label>{{ username | titlecase }}</ion-label>
+    </ion-item>
+  </ion-header>
+  <ion-content>
+    <div id="side-menu-custom-content-holder"></div>
+    <ion-list>      
+      <ion-item button (click)="logout()">Logout</ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-menu>

@@ -1,0 +1,8 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Items</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+  <ion-searchbar size="small"></ion-searchbar>
+  <app-itemel *ngFor="let item of itemDtoArr" [itemdto]="item"></app-itemel>
+</div>

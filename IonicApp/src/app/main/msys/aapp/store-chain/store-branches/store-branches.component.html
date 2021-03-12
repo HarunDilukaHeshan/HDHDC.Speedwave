@@ -1,0 +1,26 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: medium;">Store chain name: {{(storeChainDto == null)? '' : storeChainDto.storeChainName}}</p>    
+  </ion-item>
+  <ion-item lines="none">
+    <p style="font-size: small;">Store branches</p>
+    <ion-button [routerLink]="'form'" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>
+
+  <ion-item-sliding *ngFor="let item of storeBranchDtoArr">
+    <ion-item>
+      <ion-label class="ion-align-self-start ion-padding-start">
+        <p>City: Delkanda</p>
+      </ion-label>
+      <ion-icon name="arrow-back-outline" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item-options>   
+      <ion-item-option color="none" [routerLink]="['item-branch', { storeBranchId: item.id }]" routerDirection="forward">Items</ion-item-option>   
+      <ion-item-option color="none" [routerLink]="['closing-dates', { storeBranchId: item.id }]" routerDirection="forward">Closing dates</ion-item-option>   
+      <ion-item-option color="none" [routerLink]="['form', { branchId: item.id }]" routerDirection="forward">Edit</ion-item-option>
+      <ion-item-option color="none">
+        <ion-icon name="trash-outline" slot="icon-only" size="small" color="danger"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>

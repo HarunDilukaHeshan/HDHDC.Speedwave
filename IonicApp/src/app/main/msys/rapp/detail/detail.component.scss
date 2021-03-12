@@ -1,0 +1,53 @@
+.selected-o {
+    border: 0.05em solid; 
+    border-radius: 0.2em; 
+    padding: 0.3em;
+    margin: 0.4em auto;
+}
+.selected-o .city {
+    font-size: small; 
+    margin: 0.2em 0; 
+    color: #666666;
+}
+.selected-o .p-detail {
+    display: flex; 
+    justify-content: space-evenly;
+}
+.selected-o .p-detail p {
+    font-size: x-small; 
+    margin: 0.2em 0; 
+    color: #666666;
+}
+
+.selected-o .p-detail .col-01 {
+    flex-grow: 0.25; 
+    flex-shrink: 1;
+}
+
+.selected-o .p-detail .col-02 {
+    flex-grow: 0.1; 
+    flex-shrink: 1;
+}
+
+.selected-o .p-detail .col-03 {
+    flex-grow: 1; 
+    flex-shrink: 1;
+}
+
+table {
+    width: 100%;
+}
+
+table th, td {    
+    padding: 0.4em 0;
+    color: #666666;
+}
+
+table th {
+    font-size: small;
+    text-align: left;
+}
+
+table td {
+    font-size: x-small;
+}

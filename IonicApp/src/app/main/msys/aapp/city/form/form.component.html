@@ -1,0 +1,27 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <p style="font-size: small;">Create city</p>    
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">City name</ion-label>
+    <ion-input formControlName="cityName" placeholder="City name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">District</ion-label>
+    <ion-select formControlName="districtId" placeholder="District">
+      <ion-select-option [value]="item.id" *ngFor="let item of districtDtoArr">{{item.id}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Geolocation</ion-label>
+  </ion-item>
+
+  <app-geolocation-reader 
+  [mapInitialCoords]="initCoords"
+  [markers]="markers"
+  (mapClick)="onMapClick($event)"></app-geolocation-reader>
+
+  <ion-item lines="none">
+    <ion-button [disabled]="isAwaiting || formGroup.invalid" (click)="save()" slot="end">Save</ion-button>
+  </ion-item>  
+</div>

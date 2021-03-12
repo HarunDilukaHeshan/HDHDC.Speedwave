@@ -1,0 +1,36 @@
+<div [formGroup]="formGroup">
+  <ion-item lines="none">
+    <ion-label><p>User info</p></ion-label>      
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p>Username</p></ion-label>
+    <ion-input formControlName="username" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p>Name:</p></ion-label>
+    <ion-input size="small" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p>Surname:</p></ion-label>
+    <ion-input formControlName="surname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p>Email:</p></ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked"><p>Phone No</p></ion-label>
+    <ion-input  formControlName="phoneNo"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="updateCurrentUser()" fill="clear" slot="end">Save changes</ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label><p>Change password</p></ion-label>
+    <ion-button routerLink="change-password" routerDirection="forward" fill="clear" slot="end">Change</ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label><p>Addresses</p></ion-label>
+    <ion-button routerLink="customer-address" routerDirection="forward" fill="clear" slot="end">Edit</ion-button>
+  </ion-item>
+</div>

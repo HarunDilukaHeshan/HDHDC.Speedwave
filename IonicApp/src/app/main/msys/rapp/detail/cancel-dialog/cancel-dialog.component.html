@@ -1,0 +1,21 @@
+<div class="">
+  <div [formGroup]="formGroup">
+    <ion-item>
+      <ion-label>Order cancellation</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Cancellation reason</ion-label>
+      <ion-select formControlName="cReasonId">
+        <ion-select-option [value]="dto.id" *ngFor="let dto of crDtoArr">{{ dto.cancellationReason }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"></ion-label>
+      <ion-textarea formControlName="description" rows="3"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="dismiss('cancel')">Cancel</ion-button>
+      <ion-button (click)="done()" [disabled]="formGroup.invalid">Done</ion-button>
+    </ion-item>
+  </div>
+</div>

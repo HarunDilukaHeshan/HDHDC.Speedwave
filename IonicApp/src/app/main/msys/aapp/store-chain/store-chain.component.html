@@ -1,0 +1,7 @@
+<div>
+  <ion-item lines="none">
+    <p style="font-size: small;">Store chains</p>
+    <ion-button routerLink="form" routerDirection="forward" fill="clear" slot="end"><ion-icon slot="icon-only" name="add-outline"></ion-icon></ion-button>
+  </ion-item>  
+  <app-sc-item *ngFor="let item of storeChainDtoArr" [storeChain]="item"></app-sc-item>
+</div>

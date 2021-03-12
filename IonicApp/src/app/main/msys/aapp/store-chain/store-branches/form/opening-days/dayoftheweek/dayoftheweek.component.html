@@ -1,0 +1,16 @@
+<div style="position: relative;">
+  <div style="display: flex; justify-content: space-between;">
+    <p style="font-size: small;">{{strToDay(holder.dayOfWeek)}}:</p>
+    <ion-item [disabled]="holder.disabled">
+      <ion-label position="stacked">Opening time:</ion-label>
+      <ion-datetime (ionChange)="onChange($event, true)" [value]="holder.openingTime" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item [disabled]="holder.disabled">
+      <ion-label position="stacked">Closing time:</ion-label>
+      <ion-datetime (ionChange)="onChange($event, false)" [value]="holder.closingTime" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>    
+  </div>
+  <ion-button (click)="onDisabledChange($event)" size="small" fill="none" class="ion-no-margin ion-no-padding" style="position: absolute; top: 0; right: 0; z-index: 9999;">
+    <ion-icon [name]="(holder.disabled)? 'add-outline' : 'close-outline'"></ion-icon>
+  </ion-button>
+</div>
