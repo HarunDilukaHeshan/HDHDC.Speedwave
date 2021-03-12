@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>HDHDC.Speedwave</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200811091217_speedwave_initial_migration.cs" />
+    <Compile Remove="Migrations\20200811091217_speedwave_initial_migration.Designer.cs" />
+    <Compile Remove="Migrations\20200812080407_added_not_field_to_address_migration.cs" />
+    <Compile Remove="Migrations\20200812080407_added_not_field_to_address_migration.Designer.cs" />
+    <Compile Remove="Migrations\20200812081038_added_not_field_to_address_migration.cs" />
+    <Compile Remove="Migrations\20200812081038_added_not_field_to_address_migration.Designer.cs" />
+    <Compile Remove="Migrations\20200819155524_slight_changes_many_migration.cs" />
+    <Compile Remove="Migrations\20200819155524_slight_changes_many_migration.Designer.cs" />
+    <Compile Remove="Migrations\20201002200035_changes_to_quantity_entity.cs" />
+    <Compile Remove="Migrations\20201002200035_changes_to_quantity_entity.Designer.cs" />
+    <Compile Remove="Migrations\20201002213006_speedwave_initial.cs" />
+    <Compile Remove="Migrations\20201002213006_speedwave_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201003122438_speedwave_initial.cs" />
+    <Compile Remove="Migrations\20201003122438_speedwave_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201005102102_speedwave_initial.cs" />
+    <Compile Remove="Migrations\20201005102102_speedwave_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201005103314_speedwave_initial.cs" />
+    <Compile Remove="Migrations\20201005103314_speedwave_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201006111745_item_search_proc_migration.cs" />
+    <Compile Remove="Migrations\20201006111745_item_search_proc_migration.Designer.cs" />
+    <Compile Remove="Migrations\20201006143425_Item_search_proc_migration.cs" />
+    <Compile Remove="Migrations\20201006143425_Item_search_proc_migration.Designer.cs" />
+    <Compile Remove="Migrations\20201006164613_Item_search_tvf.cs" />
+    <Compile Remove="Migrations\20201006164613_Item_search_tvf.Designer.cs" />
+    <Compile Remove="Migrations\20201007093013_Computed_columns_for_itemEntity.cs" />
+    <Compile Remove="Migrations\20201007093013_Computed_columns_for_itemEntity.Designer.cs" />
+    <Compile Remove="Migrations\20201007102317_speedwave_initial.cs" />
+    <Compile Remove="Migrations\20201007102317_speedwave_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201007194651_Changed_min_required_time_column_in_min_required_time_entity.cs" />
+    <Compile Remove="Migrations\20201007194651_Changed_min_required_time_column_in_min_required_time_entity.Designer.cs" />
+    <Compile Remove="Migrations\20201101131058_addedRiderSearchFuncs.cs" />
+    <Compile Remove="Migrations\20201101131058_addedRiderSearchFuncs.Designer.cs" />
+    <Compile Remove="Migrations\20201126084838_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126084838_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126085043_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126085043_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126085423_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126085423_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126085936_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126085936_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126090445_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126090445_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126091041_Geo_distance_func2.cs" />
+    <Compile Remove="Migrations\20201126091041_Geo_distance_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126091107_Store_branches_retrieval_func2.cs" />
+    <Compile Remove="Migrations\20201126091107_Store_branches_retrieval_func2.Designer.cs" />
+    <Compile Remove="Migrations\20201126100158_Compatible_delivery_schedules_func.cs" />
+    <Compile Remove="Migrations\20201126100158_Compatible_delivery_schedules_func.Designer.cs" />
+    <Compile Remove="Migrations\20201204092216_search_items_within_the_radius_func.cs" />
+    <Compile Remove="Migrations\20201204092216_search_items_within_the_radius_func.Designer.cs" />
+    <Compile Remove="Migrations\20201207111457_Added_riderID_column_into_order_entity.cs" />
+    <Compile Remove="Migrations\20201207111457_Added_riderID_column_into_order_entity.Designer.cs" />
+    <Compile Remove="Migrations\20201208112825_Cancelled_order_entity_and_cancellation_reason_entity_added.cs" />
+    <Compile Remove="Migrations\20201208112825_Cancelled_order_entity_and_cancellation_reason_entity_added.Designer.cs" />
+    <Compile Remove="Migrations\20201208113315_Cancelled_order_entity_and_cancellation_reason_entity_added.cs" />
+    <Compile Remove="Migrations\20201208113315_Cancelled_order_entity_and_cancellation_reason_entity_added.Designer.cs" />
+    <Compile Remove="Migrations\20201208153320_Cancelled_order_entity_and_cancellation_reason_entity_added.cs" />
+    <Compile Remove="Migrations\20201208153320_Cancelled_order_entity_and_cancellation_reason_entity_added.Designer.cs" />
+    <Compile Remove="Migrations\20201208153857_Cancelled_order_entity_and_cancellation_reason_entity_added.cs" />
+    <Compile Remove="Migrations\20201208153857_Cancelled_order_entity_and_cancellation_reason_entity_added.Designer.cs" />
+    <Compile Remove="Migrations\20201208154204_Cancelled_order_entity_and_cancellation_reason_entity_and_rider_id_to_order_entity_added.cs" />
+    <Compile Remove="Migrations\20201208154204_Cancelled_order_entity_and_cancellation_reason_entity_and_rider_id_to_order_entity_added.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HDHDC.Speedwave.EntityFrameworkCore\HDHDC.Speedwave.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5" />
+  </ItemGroup>
+
+</Project>

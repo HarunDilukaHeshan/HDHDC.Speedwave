@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SlideShowSchema"
+    targetNamespace="https://www.speedwave.lk/slideshow.xsd"
+    elementFormDefault="qualified"
+    xmlns="https://www.speedwave.lk/slideshow.xsd"
+    xmlns:mstns="https://www.speedwave.lk/slideshow.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="slideshow">
+    <xs:complexType>
+      <xs:sequence>        
+        <xs:element name="img">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:base64Binary">
+                <xs:attribute name="imgType" type="xs:string"></xs:attribute>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>        
+      </xs:sequence>
+      <xs:attribute name="uri" type="xs:anyURI"></xs:attribute>
+      <xs:attribute name="name" type="xs:string"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

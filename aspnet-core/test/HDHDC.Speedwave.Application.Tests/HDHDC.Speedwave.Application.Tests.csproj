@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+  
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>HDHDC.Speedwave</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\HDHDC.Speedwave.Application\HDHDC.Speedwave.Application.csproj" />
+    <ProjectReference Include="..\HDHDC.Speedwave.Domain.Tests\HDHDC.Speedwave.Domain.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UtilityServices\" />
+  </ItemGroup>
+
+</Project>

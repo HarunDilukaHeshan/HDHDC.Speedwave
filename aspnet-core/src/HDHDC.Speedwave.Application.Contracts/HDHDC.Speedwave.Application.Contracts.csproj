@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>HDHDC.Speedwave</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BlobServices\ICategoryThumbnailBlobContainer.cs" />
+    <Compile Remove="BlobServices\ICategoryThumbnailManager.cs" />
+    <Compile Remove="BlobServices\ISpeedwaveBlobContainer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HDHDC.Speedwave.Domain.Shared\HDHDC.Speedwave.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="Volo.Abp.ObjectExtending" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.BlobStoring" Version="3.3.1" />
+    <PackageReference Include="Volo.Abp.BlobStoring.FileSystem" Version="3.3.1" />
+  </ItemGroup>
+
+</Project>
